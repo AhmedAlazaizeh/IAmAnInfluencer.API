@@ -14,4 +14,8 @@
     <ProjectReference Include="..\IAmAnInfluencer.Core\IAmAnInfluencer.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="zzzzzz\" />
+  </ItemGroup>
+
 </Project>
