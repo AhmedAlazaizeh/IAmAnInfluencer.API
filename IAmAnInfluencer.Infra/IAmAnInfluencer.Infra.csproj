@@ -14,9 +14,4 @@
     <ProjectReference Include="..\IAmAnInfluencer.Core\IAmAnInfluencer.Core.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Service\" />
-    <Folder Include="Repository\" />
-  </ItemGroup>
-
 </Project>
