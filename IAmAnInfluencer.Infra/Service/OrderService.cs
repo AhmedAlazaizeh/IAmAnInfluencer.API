@@ -1,10 +1,39 @@
-﻿using System;
+﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.Service;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace IAmAnInfluencer.Infra.Service
 {
-    public class OrderService
+    public class OrderService: IOrderService
     {
+        private readonly IOrderRepository orderRepository;
+
+        public OrderService(IOrderRepository _orderRepository)
+        {
+            orderRepository = _orderRepository;
+        }
+
+        public bool addOrder(Order order)
+        {
+            return orderRepository.addOrder(order);
+        }
+
+        public bool deleteOrder(int ID)
+        {
+            return orderRepository.deleteOrder(ID);
+        }
+
+        public List<Order> getAllOrder()
+        {
+            return orderRepository.getAllOrder();
+        }
+
+        public bool updateOrder(Order order)
+        {
+            return orderRepository.updateOrder(order);
+        }
     }
 }

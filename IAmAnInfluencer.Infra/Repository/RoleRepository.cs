@@ -10,7 +10,7 @@ using IAmAnInfluencer.Core.Repository;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
-    public class RoleRepository
+    public class RoleRepository: IRoleRepository
     {
         private readonly IDbContext _dbContext;
 
@@ -39,7 +39,7 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("deleteRole", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool Role(Role role)
+        public bool updateRole(Role role)
         {
             var p = new DynamicParameters();
             p.Add("@roleID", role.roleID, dbType: DbType.Int32, direction: ParameterDirection.Input);

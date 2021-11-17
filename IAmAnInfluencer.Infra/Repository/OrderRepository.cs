@@ -10,7 +10,7 @@ using IAmAnInfluencer.Core.Repository;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
-    public class OrderRepository
+    public class OrderRepository: IOrderRepository
     {
         private readonly IDbContext _dbContext;
 

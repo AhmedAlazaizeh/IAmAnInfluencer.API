@@ -9,7 +9,7 @@ using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
 namespace IAmAnInfluencer.Infra.Repository
 {
-    public class UserRepository
+    public class UserRepository: IUserRepository
     {
         private readonly IDbContext _dbContext;
 
@@ -46,7 +46,7 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("deleteUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool User(User user)
+        public bool updateUser(User user)
         {
             var p = new DynamicParameters();
             p.Add("@userID", user.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);

@@ -10,7 +10,7 @@ using IAmAnInfluencer.Core.Repository;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
-    public class FavoriteRepository
+    public class FavoriteRepository: IFavoriteRepository
     {
         private readonly IDbContext _dbContext;
 

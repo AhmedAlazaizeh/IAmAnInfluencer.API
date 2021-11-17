@@ -1,5 +1,9 @@
 using IAmAnInfluencer.Core.Common;
+using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.Service;
 using IAmAnInfluencer.Infra.Common;
+using IAmAnInfluencer.Infra.Repository;
+using IAmAnInfluencer.Infra.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,10 +35,30 @@ namespace IAmAnInfluencer.API
             services.AddScoped<IDbContext, DbContext>();
 
             //Repository
-            //services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IBankAccountRepository, BankAccountRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IDeductionEmployeeRepository, DeductionEmployeeRepository>();
+            services.AddScoped<IDeductionRepository, DeductionRepository>();
+            services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
+            services.AddScoped<IIAmAnInfluncerRepository, IAmAnInfluncerRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             //Service
-            //services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IBankAccountService, BankAccountService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IDeductionEmployeeService, DeductionEmployeeService>();
+            services.AddScoped<IDeductionService, DeductionService>();
+            services.AddScoped<IFavoriteService, FavoriteService>();
+            services.AddScoped<IFeedbackService, FeedbackService>();
+            services.AddScoped<IIAmAnInfluncerService, IAmAnInfluncerService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
