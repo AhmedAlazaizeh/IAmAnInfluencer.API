@@ -38,6 +38,7 @@ namespace IAmAnInfluencer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public List<User> getAllUser()
@@ -52,6 +53,60 @@ namespace IAmAnInfluencer.API.Controllers
         public bool updateUser(User user)
         {
             return userService.updateUser(user);
+        }
+
+        [HttpGet]
+        [Route("countOfCustomers")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfCustomers()
+        {
+            return userService.countOfCustomers();
+        }
+
+        [HttpGet]
+        [Route("countOfEmployees")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfEmployees()
+        {
+            return userService.countOfEmployees();
+        }
+
+        [HttpGet]
+        [Route("countOfInfluncers")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfInfluncers()
+        {
+            return userService.countOfInfluncers();
+        }
+
+        [HttpGet]
+        [Route("customersList")]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<User> customersList()
+        {
+            return userService.customersList();
+        }
+
+        [HttpGet]
+        [Route("employeeList")]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<User> employeeList()
+        {
+            return userService.employeeList();
+        }
+
+        [HttpGet]
+        [Route("influncersList")]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<User> influncersList()
+        {
+            return userService.influncersList();
         }
     }
 }

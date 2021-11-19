@@ -53,5 +53,68 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.updateOrder(order);
         }
+
+        [HttpPost]
+        [Route("cartList")]
+        [ProducesResponseType(typeof(List<Order>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Order> cartList(int ID)
+        {
+            return orderService.cartList(ID);
+        }
+
+        [HttpPost]
+        [Route("countOfCart")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfCart(int ID)
+        {
+            return orderService.countOfCart(ID);
+        }
+
+        [HttpGet]
+        [Route("countOfOrders")]
+        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfOrders()
+        {
+            return orderService.countOfOrders();
+        }
+
+        [HttpGet]
+        [Route("ordersList")]
+        [ProducesResponseType(typeof(List<Order>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Order> ordersList()
+        {
+            return orderService.ordersList();
+        }
+
+        [HttpPost]
+        [Route("sumOfCart")]
+        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public Double sumOfCart(int ID)
+        {
+            return orderService.sumOfCart(ID);
+        }
+
+        [HttpGet]
+        [Route("sumOfRevune")]
+        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public Double sumOfRevune()
+        {
+            return orderService.sumOfRevune();
+        }
+
+        [HttpGet]
+        [Route("sumOfSales")]
+        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public Double sumOfSales()
+        {
+            return orderService.sumOfSales();
+        }
     }
 }

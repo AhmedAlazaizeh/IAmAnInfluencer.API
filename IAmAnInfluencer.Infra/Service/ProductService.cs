@@ -7,7 +7,7 @@ using System.Text;
 
 namespace IAmAnInfluencer.Infra.Service
 {
-    public class ProductService: IProductService
+    public class ProductService : IProductService
     {
         private readonly IProductRepository productRepository;
 
@@ -34,6 +34,25 @@ namespace IAmAnInfluencer.Infra.Service
         public bool updateProduct(Product product)
         {
             return productRepository.updateProduct(product);
+        }
+
+        public int countOfAvailableProducts()
+        {
+            return productRepository.countOfAvailableProducts();
+        }
+
+        public List<Product> latestProducts()
+        {
+            return productRepository.latestProducts();
+        }
+
+        public List<Product> ProductPriceHighToLow()
+        {
+            return productRepository.ProductPriceHighToLow();
+        }
+        public List<Product> ProductPriceLowToHigh()
+        {
+            return productRepository.ProductPriceLowToHigh();
         }
     }
 }

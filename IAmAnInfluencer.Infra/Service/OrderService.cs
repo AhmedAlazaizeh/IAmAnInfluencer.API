@@ -35,5 +35,40 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return orderRepository.updateOrder(order);
         }
+
+        public List<Order> cartList(int ID)
+        {
+            return orderRepository.cartList(ID);
+        }
+
+        public int countOfCart(int ID)
+        {
+            return orderRepository.countOfCart(ID);
+        }
+
+        public int countOfOrders()
+        {
+            return orderRepository.countOfOrders();
+        }
+
+        public List<Order> ordersList()
+        {
+            return orderRepository.ordersList();
+        }
+
+        public Double sumOfCart(int ID)
+        {
+            return orderRepository.sumOfCart(ID);
+        }
+
+        public Double sumOfRevune()
+        {
+            return orderRepository.sumOfRevune();
+        }
+
+        public Double sumOfSales()
+        {
+            return orderRepository.sumOfSales();
+        }
     }
 }

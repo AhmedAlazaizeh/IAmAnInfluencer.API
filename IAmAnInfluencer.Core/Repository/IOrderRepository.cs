@@ -11,5 +11,12 @@ namespace IAmAnInfluencer.Core.Repository
         public List<Order> getAllOrder();
         public bool deleteOrder(int ID);
         public bool updateOrder(Order order);
+        public List<Order> cartList(int ID);
+        public int countOfCart(int ID);
+        public int countOfOrders();
+        public List<Order> ordersList();
+        public Double sumOfCart(int ID);
+        public Double sumOfRevune();
+        public Double sumOfSales();
     }
 }

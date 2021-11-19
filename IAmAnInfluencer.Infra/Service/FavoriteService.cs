@@ -35,5 +35,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return favoriteRepository.updateFavorite(favorite);
         }
+
+        public List<Product> favoriteList()
+        {
+            return favoriteRepository.favoriteList();
+        }
     }
 }

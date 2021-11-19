@@ -38,6 +38,7 @@ namespace IAmAnInfluencer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         [ProducesResponseType(typeof(List<Favorite>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public List<Favorite> getAllFavorite()
@@ -52,6 +53,15 @@ namespace IAmAnInfluencer.API.Controllers
         public bool updateFavorite(Favorite favorite)
         {
             return favoriteService.updateFavorite(favorite);
+        }
+
+        [HttpGet]
+        [Route("favoriteList")]
+        [ProducesResponseType(typeof(List<Favorite>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Product> favoriteList()
+        {
+            return favoriteService.favoriteList();
         }
     }
 }

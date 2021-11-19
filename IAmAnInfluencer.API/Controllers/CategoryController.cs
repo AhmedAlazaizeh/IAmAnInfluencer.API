@@ -38,6 +38,7 @@ namespace IAmAnInfluencer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         [ProducesResponseType(typeof(List<Category>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public List<Category> getAllCategory()

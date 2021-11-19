@@ -35,5 +35,36 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return userRepository.updateUser(user);
         }
+
+        public int countOfCustomers()
+        {
+            return userRepository.countOfCustomers();
+        }
+
+        public int countOfEmployees()
+        {
+            return userRepository.countOfEmployees();
+        }
+
+        public int countOfInfluncers()
+        {
+            return userRepository.countOfInfluncers();
+        }
+
+        public List<User> customersList()
+        {
+            return userRepository.customersList();
+        }
+
+        public List<User> employeeList()
+        {
+            return userRepository.employeeList();
+        }
+
+        public List<User> influncersList()
+        {
+            return userRepository.influncersList();
+        }
     }
+
 }

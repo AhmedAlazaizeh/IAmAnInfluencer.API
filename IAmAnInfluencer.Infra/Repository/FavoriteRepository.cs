@@ -49,5 +49,11 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateFavorite", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public List<Product> favoriteList()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("favoriteList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

@@ -51,5 +51,17 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateFeedBack", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public List<Feedback> approvedFeedback()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Feedback> result = _dbContext.Connection.Query<Feedback>("approvedFeedback", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public int countOfFeedback()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfFeedback", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

@@ -55,5 +55,57 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateOrder", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<Order> cartList(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Order> result = _dbContext.Connection.Query<Order>("cartList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public int countOfCart(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfCart", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public int countOfOrders()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfOrders", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public List<Order> ordersList()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Order> result = _dbContext.Connection.Query<Order>("ordersList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public Double sumOfCart(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfCart", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public Double sumOfRevune()
+        {
+            var p = new DynamicParameters();
+            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfRevune", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public Double sumOfSales()
+        {
+            var p = new DynamicParameters();
+            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfSales", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

@@ -63,5 +63,30 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateProduct", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public int countOfAvailableProducts()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfAvailableProducts", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+        public List<Product> latestProducts()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("latestProducts", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<Product> ProductPriceHighToLow()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("ProductPriceHighToLow", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+        public List<Product> ProductPriceLowToHigh()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("ProductPriceLowToHigh", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

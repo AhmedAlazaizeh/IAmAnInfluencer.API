@@ -11,5 +11,6 @@ namespace IAmAnInfluencer.Core.Service
         public List<Favorite> getAllFavorite();
         public bool deleteFavorite(int ID);
         public bool updateFavorite(Favorite favorite);
+        public List<Product> favoriteList();
     }
 }

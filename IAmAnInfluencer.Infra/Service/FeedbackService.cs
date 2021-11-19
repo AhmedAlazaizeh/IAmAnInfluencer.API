@@ -35,5 +35,15 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return feedbackRepository.updateFeedback(feedback);
         }
+
+        public List<Feedback> approvedFeedback()
+        {
+            return feedbackRepository.approvedFeedback();
+        }
+
+        public int countOfFeedback()
+        {
+            return feedbackRepository.countOfFeedback();
+        }
     }
 }

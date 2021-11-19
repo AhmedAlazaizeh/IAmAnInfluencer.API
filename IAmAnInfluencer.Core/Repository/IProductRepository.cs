@@ -11,5 +11,9 @@ namespace IAmAnInfluencer.Core.Repository
         public List<Product> getAllProduct();
         public bool deleteProduct(int ID);
         public bool updateProduct(Product product);
+        public int countOfAvailableProducts();
+        public List<Product> latestProducts();
+        public List<Product> ProductPriceHighToLow();
+        public List<Product> ProductPriceLowToHigh();
     }
 }

@@ -38,6 +38,7 @@ namespace IAmAnInfluencer.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
         [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public List<Feedback> getAllFeedback()
@@ -52,6 +53,24 @@ namespace IAmAnInfluencer.API.Controllers
         public bool updateFeedback(Feedback feedback)
         {
             return feedbackService.updateFeedback(feedback);
+        }
+
+        [HttpGet]
+        [Route("approvedFeedback")]
+        [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Feedback> approvedFeedback()
+        {
+            return feedbackService.approvedFeedback();
+        }
+
+        [HttpGet]
+        [Route("countOfFeedback")]
+        [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int countOfFeedback()
+        {
+            return feedbackService.countOfFeedback();
         }
     }
 }

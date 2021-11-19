@@ -62,5 +62,46 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+        public int countOfCustomers()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfCustomers", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public int countOfEmployees()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfEmployees", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public int countOfInfluncers()
+        {
+            var p = new DynamicParameters();
+            int result = _dbContext.Connection.QueryFirstOrDefault("countOfInfluncers", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public List<User> customersList()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<User> result = _dbContext.Connection.Query<User>("customersList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<User> employeeList()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<User> result = _dbContext.Connection.Query<User>("employeeList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<User> influncersList()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<User> result = _dbContext.Connection.Query<User>("influncersList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }
