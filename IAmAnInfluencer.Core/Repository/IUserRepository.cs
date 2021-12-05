@@ -16,6 +16,6 @@ namespace IAmAnInfluencer.Core.Repository
         public int countOfInfluncers();
         public List<User> customersList();
         public List<User> employeeList();
-        public List<User> influncersList()
+        public List<User> influncersList();
     }
 }

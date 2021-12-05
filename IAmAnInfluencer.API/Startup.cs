@@ -24,6 +24,7 @@ namespace IAmAnInfluencer.API
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,6 +35,14 @@ namespace IAmAnInfluencer.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            options.AddPolicy(name: MyAllowSpecificOrigins, builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
+
             services.AddAuthentication(
 
                  x =>
@@ -95,6 +104,7 @@ namespace IAmAnInfluencer.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
 
             app.UseHttpsRedirection();
