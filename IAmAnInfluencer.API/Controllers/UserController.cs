@@ -57,27 +57,27 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("countOfCustomers")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfCustomers()
+        public object countOfCustomers()
         {
             return userService.countOfCustomers();
         }
 
         [HttpGet]
         [Route("countOfEmployees")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfEmployees()
+        public object countOfEmployees()
         {
             return userService.countOfEmployees();
         }
 
         [HttpGet]
         [Route("countOfInfluncers")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfInfluncers()
+        public object countOfInfluncers()
         {
             return userService.countOfInfluncers();
         }

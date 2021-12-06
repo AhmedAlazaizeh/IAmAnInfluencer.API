@@ -62,24 +62,24 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public int countOfCustomers()
+        public object countOfCustomers()
         {
             var p = new DynamicParameters();
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfCustomers", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfCustomers", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 
-        public int countOfEmployees()
+        public object countOfEmployees()
         {
             var p = new DynamicParameters();
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfEmployees", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfEmployees", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 
-        public int countOfInfluncers()
+        public object countOfInfluncers()
         {
             var p = new DynamicParameters();
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfInfluncers", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfInfluncers", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 

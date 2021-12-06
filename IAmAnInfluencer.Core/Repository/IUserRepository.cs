@@ -11,9 +11,9 @@ namespace IAmAnInfluencer.Core.Repository
         public List<User> getAllUser();
         public bool deleteUser(int ID);
         public bool updateUser(User user);
-        public int countOfCustomers();
-        public int countOfEmployees();
-        public int countOfInfluncers();
+        public object countOfCustomers();
+        public object countOfEmployees();
+        public object countOfInfluncers();
         public List<User> customersList();
         public List<User> employeeList();
         public List<User> influncersList();
