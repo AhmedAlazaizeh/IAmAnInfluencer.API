@@ -17,5 +17,6 @@ namespace IAmAnInfluencer.Core.Repository
         public List<User> customersList();
         public List<User> employeeList();
         public List<User> influncersList();
+        public List<User> getUser(int ID);
     }
 }

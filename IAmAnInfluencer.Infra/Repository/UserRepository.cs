@@ -103,5 +103,13 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<User> result = _dbContext.Connection.Query<User>("influncersList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<User> getUser(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<User> result = _dbContext.Connection.Query<User>("getUser", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

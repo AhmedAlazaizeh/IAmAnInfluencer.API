@@ -65,6 +65,11 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return userRepository.influncersList();
         }
+
+        public List<User> getUser(int ID)
+        {
+            return userRepository.getUser(ID);
+        }
     }
 
 }

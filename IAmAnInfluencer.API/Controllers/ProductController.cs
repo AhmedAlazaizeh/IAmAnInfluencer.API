@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -89,6 +90,38 @@ namespace IAmAnInfluencer.API.Controllers
         public List<Product> ProductPriceLowToHigh()
         {
             return productService.ProductPriceLowToHigh();
+        }
+
+        [Route("uploadImage")]
+        [HttpPost]
+        public Product UploadIMage()
+        {
+            try
+            {
+                var file = Request.Form.Files[0];//:c:/usersdkosf//c:/users/users/desktop/image.jpeg
+                byte[] fileContent;
+                using (var ms = new MemoryStream())
+                {
+                    file.CopyTo(ms);
+                    fileContent = ms.ToArray();
+                }
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                //decoder for image name , no duplicate errors
+                string attachmentFileName = $"{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
+                //path for angualr project file
+                var fullPath = Path.Combine("C:\\Users\\User\\Desktop\\dashboard\\dashboards\\src\\assets\\Image\\", attachmentFileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+                Product item = new Product();
+                item.image = attachmentFileName;
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
