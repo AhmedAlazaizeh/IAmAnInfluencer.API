@@ -7,6 +7,8 @@ using System.Text;
 using IAmAnInfluencer.Core.Common;
 using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.DTO;
+
 namespace IAmAnInfluencer.Infra.Repository
 {
     public class UserRepository: IUserRepository
@@ -110,6 +112,14 @@ namespace IAmAnInfluencer.Infra.Repository
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<User> result = _dbContext.Connection.Query<User>("getUser", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public object getUserByUsername(usernameDTO usernameDTO)
+        {
+            var p = new DynamicParameters();
+            p.Add("@username", usernameDTO.username, dbType: DbType.String, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("getUserByUsername", p, commandType: CommandType.StoredProcedure);
+            return result;
         }
     }
 }

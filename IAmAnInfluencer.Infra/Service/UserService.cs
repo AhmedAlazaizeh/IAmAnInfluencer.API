@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -69,6 +70,11 @@ namespace IAmAnInfluencer.Infra.Service
         public List<User> getUser(int ID)
         {
             return userRepository.getUser(ID);
+        }
+
+        public object getUserByUsername(usernameDTO usernameDTO)
+        {
+            return userRepository.getUserByUsername(usernameDTO);
         }
     }
 
