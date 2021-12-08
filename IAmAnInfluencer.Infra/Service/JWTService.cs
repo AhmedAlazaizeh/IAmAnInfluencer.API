@@ -47,10 +47,8 @@ namespace IAmAnInfluencer.Infra.Service
                         new Claim(ClaimTypes.Name, result.username),
                         new Claim(ClaimTypes.Role, result.roleTitle)
                     }),
-
-                    Expires = DateTime.UtcNow.AddMinutes(10),
-
-                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256)
+                    Expires = DateTime.UtcNow.AddHours(1),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)
                 };
 
                 var token = tokenHandler.CreateToken(tokenDescriptor);
