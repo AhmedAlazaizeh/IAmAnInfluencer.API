@@ -45,7 +45,8 @@ namespace IAmAnInfluencer.Infra.Service
                     Subject = new ClaimsIdentity(new Claim[]
                     {
                         new Claim(ClaimTypes.Name, result.username),
-                        new Claim(ClaimTypes.Role, result.roleTitle)
+                        new Claim(ClaimTypes.Role, result.roleTitle),
+                        //new Claim(ClaimTypes.SerialNumber, result.userID)
                     }),
                     Expires = DateTime.UtcNow.AddHours(1),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey), SecurityAlgorithms.HmacSha256Signature)

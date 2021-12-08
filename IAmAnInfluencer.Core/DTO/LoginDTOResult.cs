@@ -8,5 +8,6 @@ namespace IAmAnInfluencer.Core.DTO
     {
         public string username { get; set; }
         public string roleTitle { get; set; }
+        public string userID { get; set; }
     }
 }
