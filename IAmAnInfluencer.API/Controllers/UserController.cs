@@ -121,9 +121,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpPost]
         [Route("getUserByUsername")]
-        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public object getUserByUsername(usernameDTO usernameDTO)
+        public List<User> getUserByUsername(usernameDTO usernameDTO)
         {
             return userService.getUserByUsername(usernameDTO);
         }

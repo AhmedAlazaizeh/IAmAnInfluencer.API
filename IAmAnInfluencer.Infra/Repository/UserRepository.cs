@@ -114,11 +114,11 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public object getUserByUsername(usernameDTO usernameDTO)
+        public List<User> getUserByUsername(usernameDTO usernameDTO)
         {
             var p = new DynamicParameters();
             p.Add("@username", usernameDTO.username, dbType: DbType.String, direction: ParameterDirection.Input);
-            object result = _dbContext.Connection.QueryFirstOrDefault("getUserByUsername", p, commandType: CommandType.StoredProcedure);
+            List<User> result = _dbContext.Connection.QueryFirstOrDefault("getUserByUsername", p, commandType: CommandType.StoredProcedure);
             return result;
         }
     }

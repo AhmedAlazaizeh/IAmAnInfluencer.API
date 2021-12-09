@@ -72,7 +72,7 @@ namespace IAmAnInfluencer.Infra.Service
             return userRepository.getUser(ID);
         }
 
-        public object getUserByUsername(usernameDTO usernameDTO)
+        public List<User> getUserByUsername(usernameDTO usernameDTO)
         {
             return userRepository.getUserByUsername(usernameDTO);
         }
