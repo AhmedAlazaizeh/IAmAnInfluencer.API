@@ -19,6 +19,7 @@ namespace IAmAnInfluencer.Core.Service
         public List<User> employeeList();
         public List<User> influncersList();
         public List<User> getUser(int ID);
-        public List<User> getUserByUsername(usernameDTO usernameDTO);
+        public List<User> getUserByUsername(string username);
+        public int getUserIDbyUsername(string username);
     }
 }

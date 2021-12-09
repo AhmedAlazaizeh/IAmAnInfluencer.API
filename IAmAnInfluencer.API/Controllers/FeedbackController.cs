@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -57,18 +58,18 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("approvedFeedback")]
-        [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<approvedFeedbackDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Feedback> approvedFeedback()
+        public List<approvedFeedbackDTOResult> approvedFeedback()
         {
             return feedbackService.approvedFeedback();
         }
 
         [HttpGet]
         [Route("countOfFeedback")]
-        [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfFeedback()
+        public object countOfFeedback()
         {
             return feedbackService.countOfFeedback();
         }

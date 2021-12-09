@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -36,12 +37,12 @@ namespace IAmAnInfluencer.Infra.Service
             return feedbackRepository.updateFeedback(feedback);
         }
 
-        public List<Feedback> approvedFeedback()
+        public List<approvedFeedbackDTOResult> approvedFeedback()
         {
             return feedbackRepository.approvedFeedback();
         }
 
-        public int countOfFeedback()
+        public object countOfFeedback()
         {
             return feedbackRepository.countOfFeedback();
         }

@@ -119,13 +119,22 @@ namespace IAmAnInfluencer.API.Controllers
             return userService.getUser(ID);
         }
 
-        [HttpPost]
-        [Route("getUserByUsername")]
+        [HttpGet]
+        [Route("getUserByUsername/{username}")]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<User> getUserByUsername(usernameDTO usernameDTO)
+        public List<User> getUserByUsername(string username)
         {
-            return userService.getUserByUsername(usernameDTO);
+            return userService.getUserByUsername(username);
+        }
+
+        [HttpGet]
+        [Route("getUserIDbyUsername/{username}")]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public int getUserIDbyUsername(string username)
+        {
+            return userService.getUserIDbyUsername(username);
         }
     }
 }
