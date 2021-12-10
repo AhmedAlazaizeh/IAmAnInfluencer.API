@@ -21,5 +21,6 @@ namespace IAmAnInfluencer.Core.Repository
         public List<User> getUser(int ID);
         public List<User> getUserByUsername(string username);
         public int getUserIDbyUsername(string username);
+        public List<DeductionDTOResult> getFinancial();
     }
 }

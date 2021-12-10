@@ -129,5 +129,12 @@ namespace IAmAnInfluencer.Infra.Repository
             int result = Convert.ToInt32( _dbContext.Connection.QueryFirstOrDefault("getUserIDbyUsername", p, commandType: CommandType.StoredProcedure));
             return Convert.ToInt32(result);
         }
+
+        public List<DeductionDTOResult> getFinancial()
+        {
+            var p = new DynamicParameters();
+            var result = _dbContext.Connection.Query<DeductionDTOResult>("getAllUser", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

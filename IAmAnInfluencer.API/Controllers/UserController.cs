@@ -136,5 +136,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return userService.getUserIDbyUsername(username);
         }
+
+        [HttpGet]
+        [Route("GetFinancial")]
+        [ProducesResponseType(typeof(List<DeductionDTOResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<DeductionDTOResult> getFinancial()
+        {
+            return userService.getFinancial();
+        }
     }
 }

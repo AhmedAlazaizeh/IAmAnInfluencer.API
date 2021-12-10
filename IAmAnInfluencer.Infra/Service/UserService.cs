@@ -81,6 +81,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return userRepository.getUserIDbyUsername(username);
         }
+        public List<DeductionDTOResult> getFinancial()
+        {
+            return userRepository.getFinancial();
+        }
     }
 
 }
