@@ -127,7 +127,7 @@ namespace IAmAnInfluencer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("@username", username, dbType: DbType.String, direction: ParameterDirection.Input);
             int result = Convert.ToInt32( _dbContext.Connection.QueryFirstOrDefault("getUserIDbyUsername", p, commandType: CommandType.StoredProcedure));
-            return Convert.ToInt32(result);
+            return result;
         }
 
         public List<DeductionDTOResult> getFinancial()
