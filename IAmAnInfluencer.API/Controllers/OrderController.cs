@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -63,29 +64,29 @@ namespace IAmAnInfluencer.API.Controllers
             return orderService.cartList(ID);
         }
 
-        [HttpPost]
-        [Route("countOfCart")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [HttpGet]
+        [Route("countOfCart/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfCart(int ID)
+        public object countOfCart(int ID)
         {
             return orderService.countOfCart(ID);
         }
 
         [HttpGet]
         [Route("countOfOrders")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfOrders()
+        public object countOfOrders()
         {
             return orderService.countOfOrders();
         }
 
         [HttpGet]
         [Route("ordersList")]
-        [ProducesResponseType(typeof(List<Order>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<orderListDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Order> ordersList()
+        public List<orderListDTOResult> ordersList()
         {
             return orderService.ordersList();
         }

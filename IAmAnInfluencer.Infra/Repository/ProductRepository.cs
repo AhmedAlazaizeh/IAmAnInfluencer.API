@@ -88,5 +88,13 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("ProductPriceLowToHigh", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Product> getProduct(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@productID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("getProduct", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

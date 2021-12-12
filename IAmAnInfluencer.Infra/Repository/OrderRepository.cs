@@ -7,6 +7,7 @@ using System.Text;
 using IAmAnInfluencer.Core.Common;
 using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.DTO;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
@@ -64,25 +65,25 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public int countOfCart(int ID)
+        public object countOfCart(int ID)
         {
             var p = new DynamicParameters();
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfCart", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfCart", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 
-        public int countOfOrders()
+        public object countOfOrders()
         {
             var p = new DynamicParameters();
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfOrders", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfOrders", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 
-        public List<Order> ordersList()
+        public List<orderListDTOResult> ordersList()
         {
             var p = new DynamicParameters();
-            IEnumerable<Order> result = _dbContext.Connection.Query<Order>("ordersList", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<orderListDTOResult> result = _dbContext.Connection.Query<orderListDTOResult>("ordersList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

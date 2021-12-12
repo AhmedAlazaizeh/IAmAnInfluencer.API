@@ -133,7 +133,7 @@ namespace IAmAnInfluencer.Infra.Repository
         public List<DeductionDTOResult> getFinancial()
         {
             var p = new DynamicParameters();
-            var result = _dbContext.Connection.Query<DeductionDTOResult>("getAllUser", p, commandType: CommandType.StoredProcedure);
+            var result = _dbContext.Connection.Query<DeductionDTOResult>("getFinancialList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

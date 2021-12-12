@@ -15,5 +15,6 @@ namespace IAmAnInfluencer.Core.Repository
         public List<Product> latestProducts();
         public List<Product> ProductPriceHighToLow();
         public List<Product> ProductPriceLowToHigh();
+        public List<Product> getProduct(int ID);
     }
 }

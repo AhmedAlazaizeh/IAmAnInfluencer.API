@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +13,9 @@ namespace IAmAnInfluencer.Core.Service
         public bool deleteOrder(int ID);
         public bool updateOrder(Order order);
         public List<Order> cartList(int ID);
-        public int countOfCart(int ID);
-        public int countOfOrders();
-        public List<Order> ordersList();
+        public object countOfCart(int ID);
+        public object countOfOrders();
+        public List<orderListDTOResult> ordersList();
         public Double sumOfCart(int ID);
         public Double sumOfRevune();
         public Double sumOfSales();

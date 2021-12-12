@@ -92,6 +92,15 @@ namespace IAmAnInfluencer.API.Controllers
             return productService.ProductPriceLowToHigh();
         }
 
+        [HttpGet]
+        [Route("getProduct/{ID}")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Product> getProduct(int ID)
+        {
+            return productService.getProduct(ID);
+        }
+
         [Route("uploadImage")]
         [HttpPost]
         public Product UploadIMage()

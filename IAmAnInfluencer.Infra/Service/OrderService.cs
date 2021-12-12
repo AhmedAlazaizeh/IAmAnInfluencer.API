@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -41,17 +42,17 @@ namespace IAmAnInfluencer.Infra.Service
             return orderRepository.cartList(ID);
         }
 
-        public int countOfCart(int ID)
+        public object countOfCart(int ID)
         {
             return orderRepository.countOfCart(ID);
         }
 
-        public int countOfOrders()
+        public object countOfOrders()
         {
             return orderRepository.countOfOrders();
         }
 
-        public List<Order> ordersList()
+        public List<orderListDTOResult> ordersList()
         {
             return orderRepository.ordersList();
         }
