@@ -57,11 +57,11 @@ namespace IAmAnInfluencer.Infra.Repository
             return true;
         }
 
-        public List<Order> cartList(int ID)
+        public List<CartListDTOResult> cartList(int ID)
         {
             var p = new DynamicParameters();
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Order> result = _dbContext.Connection.Query<Order>("cartList", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<CartListDTOResult> result = _dbContext.Connection.Query<CartListDTOResult>("cartList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -87,11 +87,11 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public Double sumOfCart(int ID)
+        public object sumOfCart(int ID)
         {
             var p = new DynamicParameters();
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfCart", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfCart", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 

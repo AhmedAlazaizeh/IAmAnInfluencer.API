@@ -12,11 +12,11 @@ namespace IAmAnInfluencer.Core.Service
         public List<Order> getAllOrder();
         public bool deleteOrder(int ID);
         public bool updateOrder(Order order);
-        public List<Order> cartList(int ID);
+        public List<CartListDTOResult> cartList(int ID);
         public object countOfCart(int ID);
         public object countOfOrders();
         public List<orderListDTOResult> ordersList();
-        public Double sumOfCart(int ID);
+        public object sumOfCart(int ID);
         public Double sumOfRevune();
         public Double sumOfSales();
     }

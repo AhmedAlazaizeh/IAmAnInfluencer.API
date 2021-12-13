@@ -55,11 +55,11 @@ namespace IAmAnInfluencer.API.Controllers
             return orderService.updateOrder(order);
         }
 
-        [HttpPost]
-        [Route("cartList")]
-        [ProducesResponseType(typeof(List<Order>), StatusCodes.Status200OK)]
+        [HttpGet]
+        [Route("cartList/{ID}")]
+        [ProducesResponseType(typeof(List<CartListDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Order> cartList(int ID)
+        public List<CartListDTOResult> cartList(int ID)
         {
             return orderService.cartList(ID);
         }
@@ -91,11 +91,11 @@ namespace IAmAnInfluencer.API.Controllers
             return orderService.ordersList();
         }
 
-        [HttpPost]
-        [Route("sumOfCart")]
-        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [HttpGet]
+        [Route("sumOfCart/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public Double sumOfCart(int ID)
+        public object sumOfCart(int ID)
         {
             return orderService.sumOfCart(ID);
         }

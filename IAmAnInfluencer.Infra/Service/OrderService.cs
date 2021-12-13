@@ -37,7 +37,7 @@ namespace IAmAnInfluencer.Infra.Service
             return orderRepository.updateOrder(order);
         }
 
-        public List<Order> cartList(int ID)
+        public List<CartListDTOResult> cartList(int ID)
         {
             return orderRepository.cartList(ID);
         }
@@ -57,7 +57,7 @@ namespace IAmAnInfluencer.Infra.Service
             return orderRepository.ordersList();
         }
 
-        public Double sumOfCart(int ID)
+        public object sumOfCart(int ID)
         {
             return orderRepository.sumOfCart(ID);
         }
