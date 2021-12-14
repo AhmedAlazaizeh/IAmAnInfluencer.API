@@ -17,9 +17,9 @@ namespace IAmAnInfluencer.Infra.Service
             orderRepository = _orderRepository;
         }
 
-        public bool addOrder(Order order)
+        public bool addOrder(addOrderDTO addOrderDTO)
         {
-            return orderRepository.addOrder(order);
+            return orderRepository.addOrder(addOrderDTO);
         }
 
         public bool deleteOrder(int ID)

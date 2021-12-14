@@ -8,7 +8,7 @@ namespace IAmAnInfluencer.Core.Service
 {
     public interface IOrderService
     {
-        public bool addOrder(Order order);
+        public bool addOrder(addOrderDTO addOrderDTO);
         public List<Order> getAllOrder();
         public bool deleteOrder(int ID);
         public bool updateOrder(Order order);
