@@ -16,6 +16,8 @@ namespace IAmAnInfluencer.Core.Data
         public string phoneNumber { get; set; }
         public string username { get; set; }
         public string password { get; set; }
+        public string longitude { get; set; }
+        public string latitude { get; set; }
         public float salary { get; set; }
         public DateTime employmentDate { get; set; }
         public int roleID { get; set; }
