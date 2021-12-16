@@ -12,6 +12,7 @@ namespace IAmAnInfluencer.Core.Data
         public int orderID { get; set; }
         public DateTime orderDate { get; set; }
         public bool isOrder { get; set; }
+        public bool isDelivered { get; set; }
         public float orderValue { get; set; }
         public int userID { get; set; }
         [ForeignKey("userID")]

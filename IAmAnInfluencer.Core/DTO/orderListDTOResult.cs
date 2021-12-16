@@ -8,8 +8,11 @@ namespace IAmAnInfluencer.Core.DTO
     {
         public DateTime orderDate { get; set; }
         public Double orderValue { get; set; }
+        public bool isDelivered { get; set; }
         public string fName { get; set; }
         public string lName { get; set; }
         public string productTitle { get; set; }
+        public string longitude { get; set; }
+        public string latitude { get; set; }
     }
 }

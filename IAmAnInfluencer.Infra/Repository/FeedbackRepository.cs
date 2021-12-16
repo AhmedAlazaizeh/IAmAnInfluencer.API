@@ -29,10 +29,10 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("addFeedBack", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public List<Feedback> getAllFeedback()
+        public List<allFeedbackDTOResult> getAllFeedback()
         {
             var p = new DynamicParameters();
-            IEnumerable<Feedback> result = _dbContext.Connection.Query<Feedback>("getAllFeedBack", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<allFeedbackDTOResult> result = _dbContext.Connection.Query<allFeedbackDTOResult>("getAllFeedBack", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
         public bool deleteFeedback(int ID)

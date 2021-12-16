@@ -9,7 +9,7 @@ namespace IAmAnInfluencer.Core.Service
     public interface IFeedbackService
     {
         public bool addFeedback(Feedback feedback);
-        public List<Feedback> getAllFeedback();
+        public List<allFeedbackDTOResult> getAllFeedback();
         public bool deleteFeedback(int ID);
         public bool updateFeedback(Feedback feedback);
         public List<approvedFeedbackDTOResult> approvedFeedback();

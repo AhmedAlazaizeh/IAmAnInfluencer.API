@@ -40,9 +40,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        [ProducesResponseType(typeof(List<Feedback>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<allFeedbackDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Feedback> getAllFeedback()
+        public List<allFeedbackDTOResult> getAllFeedback()
         {
             return feedbackService.getAllFeedback();
         }

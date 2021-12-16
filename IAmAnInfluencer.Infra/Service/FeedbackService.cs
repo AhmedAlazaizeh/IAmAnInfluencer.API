@@ -27,7 +27,7 @@ namespace IAmAnInfluencer.Infra.Service
             return feedbackRepository.deleteFeedback(ID);
         }
 
-        public List<Feedback> getAllFeedback()
+        public List<allFeedbackDTOResult> getAllFeedback()
         {
             return feedbackRepository.getAllFeedback();
         }
