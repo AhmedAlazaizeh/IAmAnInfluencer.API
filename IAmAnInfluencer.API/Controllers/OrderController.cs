@@ -102,18 +102,18 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("sumOfRevune")]
-        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public Double sumOfRevune()
+        public object sumOfRevune()
         {
             return orderService.sumOfRevune();
         }
 
         [HttpGet]
         [Route("sumOfSales")]
-        [ProducesResponseType(typeof(Double), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public Double sumOfSales()
+        public object sumOfSales()
         {
             return orderService.sumOfSales();
         }

@@ -58,9 +58,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("countOfAvailableProducts")]
-        [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public int countOfAvailableProducts()
+        public object countOfAvailableProducts()
         {
             return productService.countOfAvailableProducts();
         }

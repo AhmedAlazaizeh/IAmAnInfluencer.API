@@ -36,7 +36,7 @@ namespace IAmAnInfluencer.Infra.Service
             return productRepository.updateProduct(product);
         }
 
-        public int countOfAvailableProducts()
+        public object countOfAvailableProducts()
         {
             return productRepository.countOfAvailableProducts();
         }

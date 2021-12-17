@@ -64,10 +64,10 @@ namespace IAmAnInfluencer.Infra.Repository
             return true;
         }
 
-        public int countOfAvailableProducts()
+        public object countOfAvailableProducts()
         {
             var p = new DynamicParameters();
-            int result = _dbContext.Connection.QueryFirstOrDefault("countOfAvailableProducts", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfAvailableProducts", p, commandType: CommandType.StoredProcedure);
             return result;
         }
         public List<Product> latestProducts()

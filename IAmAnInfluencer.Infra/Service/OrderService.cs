@@ -62,12 +62,12 @@ namespace IAmAnInfluencer.Infra.Service
             return orderRepository.sumOfCart(ID);
         }
 
-        public Double sumOfRevune()
+        public object sumOfRevune()
         {
             return orderRepository.sumOfRevune();
         }
 
-        public Double sumOfSales()
+        public object sumOfSales()
         {
             return orderRepository.sumOfSales();
         }

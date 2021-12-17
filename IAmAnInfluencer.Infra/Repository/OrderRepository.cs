@@ -96,17 +96,17 @@ namespace IAmAnInfluencer.Infra.Repository
             return result;
         }
 
-        public Double sumOfRevune()
+        public object sumOfRevune()
         {
             var p = new DynamicParameters();
-            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfRevune", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfRevune", p, commandType: CommandType.StoredProcedure);
             return result;
         }
 
-        public Double sumOfSales()
+        public object sumOfSales()
         {
             var p = new DynamicParameters();
-            Double result = _dbContext.Connection.QueryFirstOrDefault("sumOfSales", p, commandType: CommandType.StoredProcedure);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfSales", p, commandType: CommandType.StoredProcedure);
             return result;
         }
     }
