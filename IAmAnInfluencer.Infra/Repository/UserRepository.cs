@@ -62,7 +62,7 @@ namespace IAmAnInfluencer.Infra.Repository
             p.Add("@username", user.username, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@password", user.password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@salary", user.salary, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("@employmentDate", user.employmentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("@employmentDate", user.employmentDate, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("@longitude", user.longitude, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("@latitude", user.latitude, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("updateUser", p, commandType: CommandType.StoredProcedure);
