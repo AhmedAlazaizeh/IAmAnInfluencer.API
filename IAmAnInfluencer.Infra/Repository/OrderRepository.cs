@@ -117,5 +117,21 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("clearCart", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<userOrderListDTOResult> orderList(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<userOrderListDTOResult> result = _dbContext.Connection.Query<userOrderListDTOResult>("orderList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public object sumOfMyOrders(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfMyOrders", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

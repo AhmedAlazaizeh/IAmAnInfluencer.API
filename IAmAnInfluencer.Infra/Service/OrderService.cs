@@ -76,5 +76,14 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return orderRepository.clearCart(ID);
         }
+
+        public List<userOrderListDTOResult> orderList(int ID)
+        {
+            return orderRepository.orderList(ID);
+        }
+        public object sumOfMyOrders(int ID)
+        {
+            return orderRepository.sumOfMyOrders(ID);
+        }
     }
 }

@@ -68,6 +68,7 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
         public object countOfCustomers()
         {
             var p = new DynamicParameters();
@@ -110,12 +111,12 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public List<User> getUser(int ID)
+        public object getUser(int ID)
         {
             var p = new DynamicParameters();
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<User> result = _dbContext.Connection.Query<User>("getUser", p, commandType: CommandType.StoredProcedure);
-            return result.ToList();
+            object result = _dbContext.Connection.QueryFirstOrDefault("getUser", p, commandType: CommandType.StoredProcedure);
+            return result;
         }
 
         public List<User> getUserByUsername(string username)
@@ -139,6 +140,25 @@ namespace IAmAnInfluencer.Infra.Repository
             var p = new DynamicParameters();
             var result = _dbContext.Connection.Query<DeductionDTOResult>("getFinancialList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
+        }
+
+        public bool update(int userID, string fName, string lName, string email, string phoneNumber, string username, string password, string longitude, string latitude, DateTime employmentDate, int roleID, double salary)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@fName", fName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@lName", lName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@email", email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@phoneNumber", phoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@roleID", roleID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@username", username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@password", password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@salary", salary, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("@employmentDate", employmentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("@longitude", longitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@latitude", latitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("updateUser", p, commandType: CommandType.StoredProcedure);
+            return true;
         }
     }
 }

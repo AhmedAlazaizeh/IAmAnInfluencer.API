@@ -112,9 +112,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("getUser/{ID}")]
-        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<User> getUser(int ID)
+        public object getUser(int ID)
         {
             return userService.getUser(ID);
         }
@@ -144,6 +144,15 @@ namespace IAmAnInfluencer.API.Controllers
         public List<DeductionDTOResult> getFinancial()
         {
             return userService.getFinancial();
+        }
+
+        [HttpPut]
+        [Route("UpdateUser")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool update(int userID, string fName, string lName, string email, string phoneNumber, string username, string password, string longitude, string latitude, DateTime employmentDate, int roleID, double salary)
+        {
+            return userService.update(userID, fName, lName, email, phoneNumber, username, password, longitude, latitude, employmentDate, roleID, salary);
         }
     }
 }

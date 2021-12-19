@@ -67,7 +67,7 @@ namespace IAmAnInfluencer.Infra.Service
             return userRepository.influncersList();
         }
 
-        public List<User> getUser(int ID)
+        public object getUser(int ID)
         {
             return userRepository.getUser(ID);
         }
@@ -84,6 +84,11 @@ namespace IAmAnInfluencer.Infra.Service
         public List<DeductionDTOResult> getFinancial()
         {
             return userRepository.getFinancial();
+        }
+
+        public bool update(int userID, string fName, string lName, string email, string phoneNumber, string username, string password, string longitude, string latitude, DateTime employmentDate, int roleID, double salary)
+        {
+            return userRepository.update(userID, fName, lName, email, phoneNumber, username, password, longitude, latitude, employmentDate, roleID, salary);
         }
     }
 

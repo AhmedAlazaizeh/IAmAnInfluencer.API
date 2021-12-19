@@ -126,5 +126,23 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.clearCart(ID);
         }
+
+        [HttpGet]
+        [Route("orderList/{ID}")]
+        [ProducesResponseType(typeof(List<userOrderListDTOResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<userOrderListDTOResult> orderList(int ID)
+        {
+            return orderService.orderList(ID);
+        }
+
+        [HttpGet]
+        [Route("sumOfMyOrders/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object sumOfMyOrders(int ID)
+        {
+            return orderService.sumOfMyOrders(ID);
+        }
     }
 }

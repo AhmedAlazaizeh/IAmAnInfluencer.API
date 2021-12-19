@@ -20,5 +20,7 @@ namespace IAmAnInfluencer.Core.Repository
         public object sumOfRevune();
         public object sumOfSales();
         public bool clearCart(int ID);
+        public List<userOrderListDTOResult> orderList(int ID);
+        public object sumOfMyOrders(int ID);
     }
 }

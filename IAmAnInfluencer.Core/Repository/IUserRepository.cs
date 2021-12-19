@@ -18,9 +18,10 @@ namespace IAmAnInfluencer.Core.Repository
         public List<User> customersList();
         public List<User> employeeList();
         public List<User> influncersList();
-        public List<User> getUser(int ID);
+        public object getUser(int ID);
         public List<User> getUserByUsername(string username);
         public int getUserIDbyUsername(string username);
         public List<DeductionDTOResult> getFinancial();
+        public bool update(int userID, string fName, string lName, string email, string phoneNumber, string username, string password, string longitude, string latitude, DateTime employmentDate, int roleID, double salary);
     }
 }
