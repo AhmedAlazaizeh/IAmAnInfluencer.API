@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Service;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -54,6 +55,15 @@ namespace IAmAnInfluencer.API.Controllers
         public bool updateBankAccount(BankAccount bankAccount)
         {
             return bankAccountService.updateBankAccount(bankAccount);
+        }
+
+        [HttpPost]
+        [Route("Pay")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object pay(payDTO payDTO)
+        {
+            return bankAccountService.pay(payDTO);
         }
     }
 }

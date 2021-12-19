@@ -71,5 +71,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return orderRepository.sumOfSales();
         }
+
+        public bool clearCart(int ID)
+        {
+            return orderRepository.clearCart(ID);
+        }
     }
 }

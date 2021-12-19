@@ -19,5 +19,6 @@ namespace IAmAnInfluencer.Core.Service
         public object sumOfCart(int ID);
         public object sumOfRevune();
         public object sumOfSales();
+        public bool clearCart(int ID);
     }
 }

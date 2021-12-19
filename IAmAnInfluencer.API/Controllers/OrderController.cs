@@ -117,5 +117,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.sumOfSales();
         }
+
+        [HttpPost]
+        [Route("clearCart/{ID}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool clearCart(int ID)
+        {
+            return orderService.clearCart(ID);
+        }
     }
 }

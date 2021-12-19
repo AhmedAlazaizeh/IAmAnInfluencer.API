@@ -109,5 +109,13 @@ namespace IAmAnInfluencer.Infra.Repository
             object result = _dbContext.Connection.QueryFirstOrDefault("sumOfSales", p, commandType: CommandType.StoredProcedure);
             return result;
         }
+
+        public bool clearCart(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("clearCart", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

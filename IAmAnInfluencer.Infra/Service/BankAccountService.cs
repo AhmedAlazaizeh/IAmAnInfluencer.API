@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -34,6 +35,11 @@ namespace IAmAnInfluencer.Infra.Service
         public bool updateBankAccount(BankAccount bankAccount)
         {
             return bankAccountRepository.updateBankAccount(bankAccount);
+        }
+
+        public object pay(payDTO payDTO)
+        {
+            return bankAccountRepository.pay(payDTO);
         }
     }
 }

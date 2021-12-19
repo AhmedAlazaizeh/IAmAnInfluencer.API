@@ -7,6 +7,7 @@ using System.Text;
 using IAmAnInfluencer.Core.Common;
 using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.DTO;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
@@ -54,6 +55,18 @@ namespace IAmAnInfluencer.Infra.Repository
             p.Add("@userID", bankAccount.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("updateBankAccount", p, commandType: CommandType.StoredProcedure);
             return true;
+        }
+
+        public object pay(payDTO payDTO)
+        {
+            var p = new DynamicParameters();
+
+            p.Add("@cardNumber", payDTO.cardNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@CVV", payDTO.CVV, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@expDate", payDTO.expDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("@cartSum", payDTO.cartSum, dbType: DbType.Double, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("pay", p, commandType: CommandType.StoredProcedure);
+            return result;
         }
     }
 }
