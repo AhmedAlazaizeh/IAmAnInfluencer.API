@@ -17,9 +17,9 @@ namespace IAmAnInfluencer.Infra.Service
             userRepository = _userRepository;
         }
 
-        public bool addUser(User user)
+        public bool addUser(addUserDTO addUserDTO)
         {
-            return userRepository.addUser(user);
+            return userRepository.addUser(addUserDTO);
         }
 
         public bool deleteUser(int ID)

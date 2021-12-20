@@ -73,5 +73,23 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return feedbackService.countOfFeedback();
         }
+
+        [HttpGet]
+        [Route("Approve/{ID}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool approveFeedback(int ID)
+        {
+            return feedbackService.approveFeedback(ID);
+        }
+
+        [HttpGet]
+        [Route("Disapprove/{ID}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool disapproveFeedback(int ID)
+        {
+            return feedbackService.disapproveFeedback(ID);
+        }
     }
 }

@@ -64,5 +64,21 @@ namespace IAmAnInfluencer.Infra.Repository
             object result = _dbContext.Connection.QueryFirstOrDefault("countOfFeedback", p, commandType: CommandType.StoredProcedure);
             return result;
         }
+
+        public bool approveFeedback(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@feedbackID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("approveFeedBack", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool disapproveFeedback(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@feedbackID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("disapproveFeedBack", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

@@ -46,5 +46,15 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return feedbackRepository.countOfFeedback();
         }
+
+        public bool approveFeedback(int ID)
+        {
+            return feedbackRepository.approveFeedback(ID);
+        }
+
+        public bool disapproveFeedback(int ID)
+        {
+            return feedbackRepository.disapproveFeedback(ID);
+        }
     }
 }

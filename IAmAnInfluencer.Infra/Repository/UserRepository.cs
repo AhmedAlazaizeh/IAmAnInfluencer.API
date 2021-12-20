@@ -20,20 +20,19 @@ namespace IAmAnInfluencer.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public bool addUser(User user)
+        public bool addUser(addUserDTO addUserDTO)
         {
             var p = new DynamicParameters();
-            p.Add("@fName", user.fName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@lName", user.lName, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@email", user.email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@phoneNumber", user.phoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@roleID", user.roleID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("@username", user.username, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@password", user.password, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@salary", user.salary, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("@employmentDate", user.employmentDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@longitude", user.longitude, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@latitude", user.latitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@fName", addUserDTO.fName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@lName", addUserDTO.lName, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@email", addUserDTO.email, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@phoneNumber", addUserDTO.phoneNumber, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@roleID", addUserDTO.roleID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@username", addUserDTO.username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@password", addUserDTO.password, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@salary", addUserDTO.salary, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("@longitude", addUserDTO.longitude, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@latitude", addUserDTO.latitude, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("addUser", p, commandType: CommandType.StoredProcedure);
             return true;
         }

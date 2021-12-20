@@ -8,7 +8,7 @@ namespace IAmAnInfluencer.Core.Service
 {
     public interface IUserService
     {
-        public bool addUser(User user);
+        public bool addUser(addUserDTO addUserDTO);
         public List<User> getAllUser();
         public bool deleteUser(int ID);
         public bool updateUser(User user);

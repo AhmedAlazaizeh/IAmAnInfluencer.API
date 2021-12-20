@@ -14,5 +14,7 @@ namespace IAmAnInfluencer.Core.Repository
         public bool updateFeedback(Feedback feedback);
         public List<approvedFeedbackDTOResult> approvedFeedback();
         public object countOfFeedback();
+        public bool approveFeedback(int ID);
+        public bool disapproveFeedback(int ID);
     }
 }

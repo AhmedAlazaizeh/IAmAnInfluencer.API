@@ -24,9 +24,9 @@ namespace IAmAnInfluencer.API.Controllers
         [Route("Add")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool addUser(User user)
+        public bool addUser(addUserDTO addUserDTO)
         {
-            return userService.addUser(user);
+            return userService.addUser(addUserDTO);
         }
 
         [HttpDelete]
