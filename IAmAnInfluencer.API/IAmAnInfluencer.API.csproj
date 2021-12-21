@@ -15,5 +15,9 @@
     <ProjectReference Include="..\IAmAnInfluencer.Infra\IAmAnInfluencer.Infra.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
 
 </Project>

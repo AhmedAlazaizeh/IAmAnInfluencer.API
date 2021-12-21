@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace IAmAnInfluencer.API.Controllers
@@ -101,35 +102,35 @@ namespace IAmAnInfluencer.API.Controllers
             return productService.getProduct(ID);
         }
 
-        [Route("uploadImage")]
-        [HttpPost]
-        public Product UploadIMage()
+        [Route("upload")]
+        [HttpPost, DisableRequestSizeLimit]
+        public async Task<IActionResult> Upload()
         {
             try
             {
-                var file = Request.Form.Files[0];//:c:/usersdkosf//c:/users/users/desktop/image.jpeg
-                byte[] fileContent;
-                using (var ms = new MemoryStream())
+                var formCollection = await Request.ReadFormAsync();
+                var file = formCollection.Files.First();
+                var folderName = Path.Combine("Resources", "Images");
+                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                if (file.Length > 0)
                 {
-                    file.CopyTo(ms);
-                    fileContent = ms.ToArray();
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+                    var fullPath = Path.Combine(pathToSave, fileName);
+                    var dbPath = Path.Combine(folderName, fileName);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                    }
+                    return Ok(new { dbPath });
                 }
-                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
-                //decoder for image name , no duplicate errors
-                string attachmentFileName = $"{fileName}.{Path.GetExtension(file.FileName).Replace(".", "")}";
-                //path for angualr project file
-                var fullPath = Path.Combine("C:\\Users\\User\\Desktop\\dashboard\\dashboards\\src\\assets\\Image\\", attachmentFileName);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
+                else
                 {
-                    file.CopyTo(stream);
+                    return BadRequest();
                 }
-                Product item = new Product();
-                item.image = attachmentFileName;
-                return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return null;
+                return StatusCode(500, $"Internal server error: {ex}");
             }
         }
     }
