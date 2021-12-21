@@ -85,5 +85,19 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return orderRepository.sumOfMyOrders(ID);
         }
+        public List<InfluncersInfoDTOResult> getInfluncersInfo()
+        {
+            return orderRepository.getInfluncersInfo();
+        }
+
+        public bool delivered(int ID)
+        {
+            return orderRepository.delivered(ID);
+        }
+
+        public bool notDelivered(int ID)
+        {
+            return orderRepository.notDelivered(ID);
+        }
     }
 }

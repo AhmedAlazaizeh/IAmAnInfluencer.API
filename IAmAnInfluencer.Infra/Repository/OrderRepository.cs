@@ -133,5 +133,28 @@ namespace IAmAnInfluencer.Infra.Repository
             object result = _dbContext.Connection.QueryFirstOrDefault("sumOfMyOrders", p, commandType: CommandType.StoredProcedure);
             return result;
         }
+
+        public List<InfluncersInfoDTOResult> getInfluncersInfo()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<InfluncersInfoDTOResult> result = _dbContext.Connection.Query<InfluncersInfoDTOResult>("getInfluncersInfo", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public bool delivered(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@orderID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("delivered", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
+
+        public bool notDelivered(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@orderID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("notDelivered", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

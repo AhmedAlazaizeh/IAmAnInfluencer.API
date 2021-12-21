@@ -22,5 +22,8 @@ namespace IAmAnInfluencer.Core.Repository
         public bool clearCart(int ID);
         public List<userOrderListDTOResult> orderList(int ID);
         public object sumOfMyOrders(int ID);
+        public List<InfluncersInfoDTOResult> getInfluncersInfo();
+        public bool delivered(int ID);
+        public bool notDelivered(int ID);
     }
 }

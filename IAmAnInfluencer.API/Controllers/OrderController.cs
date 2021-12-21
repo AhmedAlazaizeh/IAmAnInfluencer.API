@@ -144,5 +144,32 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.sumOfMyOrders(ID);
         }
+
+        [HttpGet]
+        [Route("InfluncersInfo")]
+        [ProducesResponseType(typeof(List<InfluncersInfoDTOResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<InfluncersInfoDTOResult> getInfluncersInfo()
+        {
+            return orderService.getInfluncersInfo();
+        }
+
+        [HttpGet]
+        [Route("Delivered/{ID}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool delivered(int ID)
+        {
+            return orderService.delivered(ID);
+        }
+
+        [HttpGet]
+        [Route("NotDelivered/{ID}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool notDelivered(int ID)
+        {
+            return orderService.notDelivered(ID);
+        }
     }
 }

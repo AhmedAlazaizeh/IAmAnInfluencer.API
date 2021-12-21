@@ -6,6 +6,7 @@ namespace IAmAnInfluencer.Core.DTO
 {
     public class orderListDTOResult
     {
+        public int orderID { get; set; }
         public DateTime orderDate { get; set; }
         public Double orderValue { get; set; }
         public bool isDelivered { get; set; }
