@@ -7,6 +7,7 @@ using System.Text;
 using IAmAnInfluencer.Core.Common;
 using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.DTO;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
@@ -19,18 +20,16 @@ namespace IAmAnInfluencer.Infra.Repository
             _dbContext = dbContext;
         }
 
-        public bool addProduct(Product product)
+        public bool addProduct(AddProductDTO addProductDTO)
         {
             var p = new DynamicParameters();
-            p.Add("@price", product.price, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("@description", product.description, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@productTitle", product.productTitle, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@addedDate", product.addedDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@soldDate", product.soldDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@image", product.image, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@isAvailable", product.isAvailable, dbType: DbType.Boolean, direction: ParameterDirection.Input);
-            p.Add("@userID", product.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("@categoryID", product.categoryID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@price", addProductDTO.price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("@description", addProductDTO.description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@productTitle", addProductDTO.productTitle, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@image", addProductDTO.image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@isAvailable", addProductDTO.isAvailable, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            p.Add("@userID", addProductDTO.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@categoryID", addProductDTO.categoryID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("addProduct", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -47,19 +46,17 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("deleteProduct", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public bool updateProduct(Product product)
+        public bool updateProduct(AddProductDTO addProductDTO)
         {
             var p = new DynamicParameters();
-            p.Add("@productID", product.productID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("@price", product.price, dbType: DbType.Double, direction: ParameterDirection.Input);
-            p.Add("@description", product.description, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@productTitle", product.productTitle, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@addedDate", product.addedDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@soldDate", product.soldDate, dbType: DbType.DateTime, direction: ParameterDirection.Input);
-            p.Add("@image", product.image, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("@isAvailable", product.isAvailable, dbType: DbType.Boolean, direction: ParameterDirection.Input);
-            p.Add("@userID", product.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("@categoryID", product.categoryID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@productID", addProductDTO.productID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@price", addProductDTO.price, dbType: DbType.Double, direction: ParameterDirection.Input);
+            p.Add("@description", addProductDTO.description, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@productTitle", addProductDTO.productTitle, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@image", addProductDTO.image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("@isAvailable", addProductDTO.isAvailable, dbType: DbType.Boolean, direction: ParameterDirection.Input);
+            p.Add("@userID", addProductDTO.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@categoryID", addProductDTO.categoryID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("updateProduct", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -94,6 +91,21 @@ namespace IAmAnInfluencer.Infra.Repository
             var p = new DynamicParameters();
             p.Add("@productID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("getProduct", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Product> getMyProducts(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("getMyProducts", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public List<Product> latestProductsAll()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("latestProductsAll", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
     }

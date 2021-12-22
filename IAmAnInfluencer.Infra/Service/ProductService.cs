@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -16,9 +17,9 @@ namespace IAmAnInfluencer.Infra.Service
             productRepository = _productRepository;
         }
 
-        public bool addProduct(Product product)
+        public bool addProduct(AddProductDTO addProductDTO)
         {
-            return productRepository.addProduct(product);
+            return productRepository.addProduct(addProductDTO);
         }
 
         public bool deleteProduct(int ID)
@@ -31,9 +32,9 @@ namespace IAmAnInfluencer.Infra.Service
             return productRepository.getAllProduct();
         }
 
-        public bool updateProduct(Product product)
+        public bool updateProduct(AddProductDTO addProductDTO)
         {
-            return productRepository.updateProduct(product);
+            return productRepository.updateProduct(addProductDTO);
         }
 
         public object countOfAvailableProducts()
@@ -58,6 +59,16 @@ namespace IAmAnInfluencer.Infra.Service
         public List<Product> getProduct(int ID)
         {
             return productRepository.getProduct(ID);
+        }
+
+        public List<Product> getMyProducts(int ID)
+        {
+            return productRepository.getMyProducts(ID);
+        }
+
+        public List<Product> latestProductsAll()
+        {
+            return productRepository.latestProductsAll();
         }
     }
 }

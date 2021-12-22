@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +26,9 @@ namespace IAmAnInfluencer.API.Controllers
         [Route("Add")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool addProduct(Product product)
+        public bool addProduct(AddProductDTO addProductDTO)
         {
-            return productService.addProduct(product);
+            return productService.addProduct(addProductDTO);
         }
 
         [HttpDelete]
@@ -52,9 +53,9 @@ namespace IAmAnInfluencer.API.Controllers
         [Route("Update")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool updateProduct(Product product)
+        public bool updateProduct(AddProductDTO addProductDTO)
         {
-            return productService.updateProduct(product);
+            return productService.updateProduct(addProductDTO);
         }
 
         [HttpGet]
@@ -102,7 +103,7 @@ namespace IAmAnInfluencer.API.Controllers
             return productService.getProduct(ID);
         }
 
-        [Route("upload")]
+        [Route("Upload")]
         [HttpPost, DisableRequestSizeLimit]
         public async Task<IActionResult> Upload()
         {
@@ -132,6 +133,24 @@ namespace IAmAnInfluencer.API.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex}");
             }
+        }
+
+        [HttpGet]
+        [Route("getMyProducts/{ID}")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Product> getMyProducts(int ID)
+        {
+            return productService.getMyProducts(ID);
+        }
+
+        [HttpGet]
+        [Route("latestProductsAll")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Product> latestProductsAll()
+        {
+            return productService.latestProductsAll();
         }
     }
 }

@@ -14,7 +14,6 @@ namespace IAmAnInfluencer.Core.Data
         public string description { get; set; }
         public string productTitle { get; set; }
         public DateTime addedDate { get; set; }
-        public DateTime soldDate { get; set; }
         public string image { get; set; }
         public bool isAvailable { get; set; }
         public int userID { get; set; }
