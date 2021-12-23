@@ -19,6 +19,7 @@ namespace IAmAnInfluencer.Core.Data
         public string longitude { get; set; }
         public string latitude { get; set; }
         public float salary { get; set; }
+        public string image { get; set; }
         public DateTime employmentDate { get; set; }
         public int roleID { get; set; }
         [ForeignKey("roleID")]

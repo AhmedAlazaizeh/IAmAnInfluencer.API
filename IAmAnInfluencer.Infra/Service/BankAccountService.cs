@@ -41,5 +41,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return bankAccountRepository.pay(payDTO);
         }
+
+        public bool updateBalance(updateBalanceDTO updateBalanceDTO)
+        {
+            return bankAccountRepository.updateBalance(updateBalanceDTO);
+        }
     }
 }

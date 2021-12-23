@@ -16,7 +16,7 @@ namespace IAmAnInfluencer.Core.Service
         public List<Product> latestProducts();
         public List<Product> ProductPriceHighToLow();
         public List<Product> ProductPriceLowToHigh();
-        public List<Product> getProduct(int ID);
+        public List<getAProductDTOResult> getProduct(int ID);
         public List<Product> getMyProducts(int ID);
         public List<Product> latestProductsAll();
     }

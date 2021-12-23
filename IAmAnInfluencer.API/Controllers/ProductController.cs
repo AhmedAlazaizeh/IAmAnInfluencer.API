@@ -96,9 +96,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("getProduct/{ID}")]
-        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<getAProductDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Product> getProduct(int ID)
+        public List<getAProductDTOResult> getProduct(int ID)
         {
             return productService.getProduct(ID);
         }

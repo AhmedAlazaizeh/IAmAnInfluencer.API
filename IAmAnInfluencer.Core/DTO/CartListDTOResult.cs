@@ -10,5 +10,6 @@ namespace IAmAnInfluencer.Core.DTO
         public string fName { get; set; }
         public string lName { get; set; }
         public double price { get; set; }
+        public string image { get; set; }
     }
 }

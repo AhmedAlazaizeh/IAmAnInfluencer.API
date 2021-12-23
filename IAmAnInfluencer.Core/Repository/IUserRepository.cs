@@ -16,9 +16,9 @@ namespace IAmAnInfluencer.Core.Repository
         public object countOfEmployees();
         public object countOfInfluncers();
         public List<User> customersList();
-        public List<User> employeeList();
+        public List<employeeListDTOResult> employeeList();
         public List<User> influncersList();
-        public object getUser(int ID);
+        public List<User> getUser(int ID);
         public List<User> getUserByUsername(string username);
         public int getUserIDbyUsername(string username);
         public List<DeductionDTOResult> getFinancial();

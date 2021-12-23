@@ -13,5 +13,6 @@ namespace IAmAnInfluencer.Core.Repository
         public bool deleteBankAccount(int ID);
         public bool updateBankAccount(BankAccount bankAccount);
         public object pay(payDTO payDTO);
+        public bool updateBalance(updateBalanceDTO updateBalanceDTO);
     }
 }

@@ -65,5 +65,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return bankAccountService.pay(payDTO);
         }
+
+        [HttpPut]
+        [Route("UpdateBalance")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool updateBalance(updateBalanceDTO updateBalanceDTO)
+        {
+            return bankAccountService.updateBalance(updateBalanceDTO);
+        }
     }
 }

@@ -68,5 +68,14 @@ namespace IAmAnInfluencer.Infra.Repository
             object result = _dbContext.Connection.QueryFirstOrDefault("pay", p, commandType: CommandType.StoredProcedure);
             return result;
         }
+
+        public bool updateBalance(updateBalanceDTO updateBalanceDTO)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", updateBalanceDTO.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@payment", updateBalanceDTO.payment, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("updateBalance", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

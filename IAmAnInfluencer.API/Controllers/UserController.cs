@@ -94,9 +94,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("employeeList")]
-        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<employeeListDTOResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<User> employeeList()
+        public List<employeeListDTOResult> employeeList()
         {
             return userService.employeeList();
         }
@@ -112,9 +112,9 @@ namespace IAmAnInfluencer.API.Controllers
 
         [HttpGet]
         [Route("getUser/{ID}")]
-        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public object getUser(int ID)
+        public List<User> getUser(int ID)
         {
             return userService.getUser(ID);
         }

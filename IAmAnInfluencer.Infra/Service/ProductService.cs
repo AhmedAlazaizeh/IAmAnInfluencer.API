@@ -56,7 +56,7 @@ namespace IAmAnInfluencer.Infra.Service
             return productRepository.ProductPriceLowToHigh();
         }
 
-        public List<Product> getProduct(int ID)
+        public List<getAProductDTOResult> getProduct(int ID)
         {
             return productRepository.getProduct(ID);
         }

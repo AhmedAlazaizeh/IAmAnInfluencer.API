@@ -57,7 +57,7 @@ namespace IAmAnInfluencer.Infra.Service
             return userRepository.customersList();
         }
 
-        public List<User> employeeList()
+        public List<employeeListDTOResult> employeeList()
         {
             return userRepository.employeeList();
         }
@@ -67,7 +67,7 @@ namespace IAmAnInfluencer.Infra.Service
             return userRepository.influncersList();
         }
 
-        public object getUser(int ID)
+        public List<User> getUser(int ID)
         {
             return userRepository.getUser(ID);
         }

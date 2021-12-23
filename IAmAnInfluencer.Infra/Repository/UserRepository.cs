@@ -96,10 +96,10 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public List<User> employeeList()
+        public List<employeeListDTOResult> employeeList()
         {
             var p = new DynamicParameters();
-            IEnumerable<User> result = _dbContext.Connection.Query<User>("employeeList", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<employeeListDTOResult> result = _dbContext.Connection.Query<employeeListDTOResult>("employeeList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -110,12 +110,12 @@ namespace IAmAnInfluencer.Infra.Repository
             return result.ToList();
         }
 
-        public object getUser(int ID)
+        public List<User> getUser(int ID)
         {
             var p = new DynamicParameters();
             p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            object result = _dbContext.Connection.QueryFirstOrDefault("getUser", p, commandType: CommandType.StoredProcedure);
-            return result;
+            IEnumerable<User> result = _dbContext.Connection.Query<User>("getUser", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
 
         public List<User> getUserByUsername(string username)
