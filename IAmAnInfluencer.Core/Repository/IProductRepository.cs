@@ -19,5 +19,6 @@ namespace IAmAnInfluencer.Core.Repository
         public List<getAProductDTOResult> getProduct(int ID);
         public List<Product> getMyProducts(int ID);
         public List<Product> latestProductsAll();
+        public List<Product> searchProduct(string searchedFor);
     }
 }

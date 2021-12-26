@@ -70,5 +70,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return productRepository.latestProductsAll();
         }
+
+        public List<Product> searchProduct(string searchedFor)
+        {
+            return productRepository.searchProduct(searchedFor);
+        }
     }
 }

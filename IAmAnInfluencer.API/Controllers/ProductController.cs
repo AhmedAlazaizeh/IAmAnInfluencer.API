@@ -152,5 +152,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return productService.latestProductsAll();
         }
+
+        [HttpGet]
+        [Route("SearchProduct/{searchedFor}")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<Product> searchProduct(string searchedFor)
+        {
+            return productService.searchProduct(searchedFor);
+        }
     }
 }

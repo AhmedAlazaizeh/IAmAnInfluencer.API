@@ -108,5 +108,13 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("latestProductsAll", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public List<Product> searchProduct(string searchedFor)
+        {
+            var p = new DynamicParameters();
+            p.Add("@searchedFor", searchedFor, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Product> result = _dbContext.Connection.Query<Product>("searchProduct", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }
