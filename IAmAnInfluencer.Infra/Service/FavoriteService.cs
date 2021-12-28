@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Repository;
 using IAmAnInfluencer.Core.Service;
 using System;
@@ -21,9 +22,9 @@ namespace IAmAnInfluencer.Infra.Service
             return favoriteRepository.addFavorite(favorite);
         }
 
-        public bool deleteFavorite(int ID)
+        public bool deleteFavorite(deleteFavDTO favorite)
         {
-            return favoriteRepository.deleteFavorite(ID);
+            return favoriteRepository.deleteFavorite(favorite);
         }
 
         public List<Favorite> getAllFavorite()
@@ -36,9 +37,9 @@ namespace IAmAnInfluencer.Infra.Service
             return favoriteRepository.updateFavorite(favorite);
         }
 
-        public List<Product> favoriteList()
+        public List<Product> favoriteList(int ID)
         {
-            return favoriteRepository.favoriteList();
+            return favoriteRepository.favoriteList(ID);
         }
     }
 }

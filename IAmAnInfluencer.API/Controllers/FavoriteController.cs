@@ -1,4 +1,5 @@
 ﻿using IAmAnInfluencer.Core.Data;
+using IAmAnInfluencer.Core.DTO;
 using IAmAnInfluencer.Core.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,13 +29,13 @@ namespace IAmAnInfluencer.API.Controllers
             return favoriteService.addFavorite(favorite);
         }
 
-        [HttpDelete]
-        [Route("Delete/{ID}")]
+        [HttpPost]
+        [Route("Delete")]
         [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public bool deleteFavorite(int ID)
+        public bool deleteFavorite(deleteFavDTO favorite)
         {
-            return favoriteService.deleteFavorite(ID);
+            return favoriteService.deleteFavorite(favorite);
         }
 
         [HttpGet]
@@ -56,12 +57,12 @@ namespace IAmAnInfluencer.API.Controllers
         }
 
         [HttpGet]
-        [Route("favoriteList")]
-        [ProducesResponseType(typeof(List<Favorite>), StatusCodes.Status200OK)]
+        [Route("FavList/{ID}")]
+        [ProducesResponseType(typeof(List<Product>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public List<Product> favoriteList()
+        public List<Product> favoriteList(int ID)
         {
-            return favoriteService.favoriteList();
+            return favoriteService.favoriteList(ID);
         }
     }
 }

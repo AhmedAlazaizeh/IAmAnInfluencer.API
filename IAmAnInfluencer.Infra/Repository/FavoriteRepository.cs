@@ -7,6 +7,7 @@ using System.Text;
 using IAmAnInfluencer.Core.Common;
 using IAmAnInfluencer.Core.Data;
 using IAmAnInfluencer.Core.Repository;
+using IAmAnInfluencer.Core.DTO;
 
 namespace IAmAnInfluencer.Infra.Repository
 {
@@ -33,10 +34,11 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<Favorite> result = _dbContext.Connection.Query<Favorite>("getAllFavorite", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
-        public bool deleteFavorite(int ID)
+        public bool deleteFavorite(deleteFavDTO favorite)
         {
             var p = new DynamicParameters();
-            p.Add("@favoriteID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@productID", favorite.productID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@userID", favorite.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.ExecuteAsync("deleteFavorite", p, commandType: CommandType.StoredProcedure);
             return true;
         }
@@ -49,9 +51,10 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("updateFavorite", p, commandType: CommandType.StoredProcedure);
             return true;
         }
-        public List<Product> favoriteList()
+        public List<Product> favoriteList(int ID)
         {
             var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("favoriteList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
