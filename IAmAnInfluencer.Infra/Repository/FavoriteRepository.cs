@@ -58,5 +58,13 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("favoriteList", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public object favCount(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("favCount", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

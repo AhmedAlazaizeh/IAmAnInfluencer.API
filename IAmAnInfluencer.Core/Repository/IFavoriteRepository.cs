@@ -13,5 +13,6 @@ namespace IAmAnInfluencer.Core.Repository
         public bool deleteFavorite(deleteFavDTO favorite);
         public bool updateFavorite(Favorite favorite);
         public List<Product> favoriteList(int ID);
+        public object favCount(int ID);
     }
 }

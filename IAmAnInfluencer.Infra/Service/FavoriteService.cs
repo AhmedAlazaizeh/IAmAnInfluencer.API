@@ -41,5 +41,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return favoriteRepository.favoriteList(ID);
         }
+
+        public object favCount(int ID)
+        {
+            return favoriteRepository.favCount(ID);
+        }
     }
 }

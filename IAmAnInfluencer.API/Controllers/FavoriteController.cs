@@ -64,5 +64,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return favoriteService.favoriteList(ID);
         }
+
+        [HttpGet]
+        [Route("FavCount/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object favCount(int ID)
+        {
+            return favoriteService.favCount(ID);
+        }
     }
 }
