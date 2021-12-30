@@ -161,5 +161,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return productService.searchProduct(searchedFor);
         }
+
+        [HttpGet]
+        [Route("countOfInfluncerProducts/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object countOfIinfluncerProducts(int ID)
+        {
+            return productService.countOfIinfluncerProducts(ID);
+        }
     }
 }

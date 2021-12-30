@@ -116,5 +116,13 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<Product> result = _dbContext.Connection.Query<Product>("searchProduct", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public object countOfIinfluncerProducts(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfInfluncerProducts", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
     }
 }

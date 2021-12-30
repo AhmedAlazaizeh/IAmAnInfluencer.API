@@ -156,5 +156,44 @@ namespace IAmAnInfluencer.Infra.Repository
             var result = _dbContext.Connection.ExecuteAsync("notDelivered", p, commandType: CommandType.StoredProcedure);
             return true;
         }
+
+        public List<orderListDTOResult> influncerOrdersList(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            IEnumerable<orderListDTOResult> result = _dbContext.Connection.Query<orderListDTOResult>("influncerOrdersList", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+        public object sumOfInfluncerRevune(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfInfluncerRevune", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public object sumOfInfluncerSales(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("sumOfInfluncerSales", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public object countOfInfluncerOrders(int ID)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", ID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            object result = _dbContext.Connection.QueryFirstOrDefault("countOfInfluncerOrders", p, commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
+        public List<salesChartDTOResult> salesChart()
+        {
+            var p = new DynamicParameters();
+            IEnumerable<salesChartDTOResult> result = _dbContext.Connection.Query<salesChartDTOResult>("salesChart", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

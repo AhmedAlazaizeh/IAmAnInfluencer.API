@@ -20,5 +20,6 @@ namespace IAmAnInfluencer.Core.Service
         public List<Product> getMyProducts(int ID);
         public List<Product> latestProductsAll();
         public List<Product> searchProduct(string searchedFor);
+        public object countOfIinfluncerProducts(int ID);
     }
 }

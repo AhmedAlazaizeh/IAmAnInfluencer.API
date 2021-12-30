@@ -75,5 +75,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return productRepository.searchProduct(searchedFor);
         }
+
+        public object countOfIinfluncerProducts(int ID)
+        {
+            return productRepository.countOfIinfluncerProducts(ID);
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace IAmAnInfluencer.Infra.Service
 {
-    public class OrderService: IOrderService
+    public class OrderService : IOrderService
     {
         private readonly IOrderRepository orderRepository;
 
@@ -98,6 +98,31 @@ namespace IAmAnInfluencer.Infra.Service
         public bool notDelivered(int ID)
         {
             return orderRepository.notDelivered(ID);
+        }
+
+        public List<orderListDTOResult> influncerOrdersList(int ID)
+        {
+            return orderRepository.influncerOrdersList(ID);
+        }
+
+        public object sumOfInfluncerRevune(int ID)
+        {
+            return orderRepository.sumOfInfluncerRevune(ID);
+        }
+
+        public object sumOfInfluncerSales(int ID)
+        {
+            return orderRepository.sumOfInfluncerSales(ID);
+        }
+
+        public object countOfInfluncerOrders(int ID)
+        {
+            return orderRepository.countOfInfluncerOrders(ID);
+        }
+
+        public List<salesChartDTOResult> salesChart()
+        {
+            return orderRepository.salesChart();
         }
     }
 }

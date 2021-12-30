@@ -171,5 +171,50 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.notDelivered(ID);
         }
+
+        [HttpGet]
+        [Route("influncerOrdersList/{ID}")]
+        [ProducesResponseType(typeof(List<orderListDTOResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<orderListDTOResult> influncerOrdersList(int ID)
+        {
+            return orderService.influncerOrdersList(ID);
+        }
+
+        [HttpGet]
+        [Route("sumOfInfluncerRevune/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object sumOfInfluncerRevune(int ID)
+        {
+            return orderService.sumOfInfluncerRevune(ID);
+        }
+
+        [HttpGet]
+        [Route("sumOfInfluncerSales/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object sumOfInfluncerSales(int ID)
+        {
+            return orderService.sumOfInfluncerSales(ID);
+        }
+
+        [HttpGet]
+        [Route("countOfInfluncerOrders/{ID}")]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public object countOfInfluncerOrders(int ID)
+        {
+            return orderService.countOfInfluncerOrders(ID);
+        }
+
+        [HttpGet]
+        [Route("salesChart")]
+        [ProducesResponseType(typeof(List<salesChartDTOResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public List<salesChartDTOResult> salesChart()
+        {
+            return orderService.salesChart();
+        }
     }
 }

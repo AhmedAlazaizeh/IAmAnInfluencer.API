@@ -25,5 +25,10 @@ namespace IAmAnInfluencer.Core.Service
         public List<InfluncersInfoDTOResult> getInfluncersInfo();
         public bool delivered(int ID);
         public bool notDelivered(int ID);
+        public List<orderListDTOResult> influncerOrdersList(int ID);
+        public object sumOfInfluncerRevune(int ID);
+        public object sumOfInfluncerSales(int ID);
+        public object countOfInfluncerOrders(int ID);
+        public List<salesChartDTOResult> salesChart();
     }
 }
