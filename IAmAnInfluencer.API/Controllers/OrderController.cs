@@ -216,5 +216,14 @@ namespace IAmAnInfluencer.API.Controllers
         {
             return orderService.salesChart();
         }
+
+        [HttpPost]
+        [Route("removeFromcart")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public bool removeFromCart(removeFromCartDTO removeFromCartDTO)
+        {
+            return orderService.removeFromCart(removeFromCartDTO);
+        }
     }
 }

@@ -195,5 +195,14 @@ namespace IAmAnInfluencer.Infra.Repository
             IEnumerable<salesChartDTOResult> result = _dbContext.Connection.Query<salesChartDTOResult>("salesChart", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
+
+        public bool removeFromCart(removeFromCartDTO removeFromCartDTO)
+        {
+            var p = new DynamicParameters();
+            p.Add("@userID", removeFromCartDTO.userID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("@productID", removeFromCartDTO.productID, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.ExecuteAsync("removeFromCart", p, commandType: CommandType.StoredProcedure);
+            return true;
+        }
     }
 }

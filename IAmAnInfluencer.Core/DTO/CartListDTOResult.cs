@@ -6,6 +6,7 @@ namespace IAmAnInfluencer.Core.DTO
 {
     public class CartListDTOResult
     {
+        public int productID { get; set; }
         public string productTitle { get; set; }
         public string fName { get; set; }
         public string lName { get; set; }

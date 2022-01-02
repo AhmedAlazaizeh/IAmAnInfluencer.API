@@ -124,5 +124,10 @@ namespace IAmAnInfluencer.Infra.Service
         {
             return orderRepository.salesChart();
         }
+
+        public bool removeFromCart(removeFromCartDTO removeFromCartDTO)
+        {
+            return orderRepository.removeFromCart(removeFromCartDTO);
+        }
     }
 }

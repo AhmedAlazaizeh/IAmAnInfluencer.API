@@ -30,5 +30,6 @@ namespace IAmAnInfluencer.Core.Service
         public object sumOfInfluncerSales(int ID);
         public object countOfInfluncerOrders(int ID);
         public List<salesChartDTOResult> salesChart();
+        public bool removeFromCart(removeFromCartDTO removeFromCartDTO);
     }
 }
