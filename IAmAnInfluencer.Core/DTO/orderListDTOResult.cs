@@ -15,5 +15,6 @@ namespace IAmAnInfluencer.Core.DTO
         public string productTitle { get; set; }
         public string longitude { get; set; }
         public string latitude { get; set; }
+        public string phoneNumber { get; set; }
     }
 }
